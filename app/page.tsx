@@ -134,7 +134,7 @@ export default function Home() {
 		<>
 			<div className="pb-4 min-h-28" />
 
-			<img src="https://postimg.cc/2LF6ZJH4" alt="image_description" style={{
+			<img src="https://i.postimg.cc/nrNQ6fBw/nitalk.png" alt="image_description" style={{
 				    width: '500px',
 				    height: '300px',
 				    position: 'absolute',
