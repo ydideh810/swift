@@ -134,14 +134,14 @@ export default function Home() {
 		<>
 			<div className="pb-4 min-h-28" />
 
-			<img src="https://i.ibb.co/3zmHnfT/nitalk.png" alt="image_description" style={{
-    width: '500px',
-    height: '300px',
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
-    transform: 'translate(-50%, -50%)'
-  }} />
+			<img src="https://postimg.cc/2LF6ZJH4" alt="image_description" style={{
+				    width: '500px',
+				    height: '300px',
+				    position: 'absolute',
+				    left: '50%',
+				    top: '50%',
+				    transform: 'translate(-50%, -50%)'
+ 				 }} />
 
 			<form
 				className="rounded-full bg-neutral-200/80 dark:bg-neutral-800/80 flex items-center w-full max-w-3xl border border-transparent hover:border-neutral-300 focus-within:border-neutral-400 hover:focus-within:border-neutral-400 dark:hover:border-neutral-700 dark:focus-within:border-neutral-600 dark:hover:focus-within:border-neutral-600"
