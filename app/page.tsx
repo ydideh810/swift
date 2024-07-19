@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import companyLogo from './nidtalk.png';
+import companyLogo from './nitalk.png';
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { EnterIcon, LoadingIcon } from "@/lib/icons";
@@ -135,7 +135,7 @@ export default function Home() {
 		<>
 			<div className="pb-4 min-h-28" />
 
-			<img src="https://i.postimg.cc/nrNQ6fBw/nitalk.png" alt="image_description" style={{
+			<img src={companyLogo} alt="image_description" style={{
 				    width: '500px',
 				    height: '300px',
 				    position: 'absolute',
