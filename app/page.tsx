@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import companyLogo from './nidtalk.png';
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { EnterIcon, LoadingIcon } from "@/lib/icons";
