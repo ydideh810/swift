@@ -143,7 +143,7 @@ export default function Home() {
 				    height: '218px',
 				    position: 'absolute',
 				    left: '50%',
-				    top: '70%',
+				    top: '35%',
 			            
 				    transform: 'translate(-50%, -50%)'
  				 }} />
