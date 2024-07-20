@@ -8,6 +8,8 @@ import { EnterIcon, LoadingIcon } from "@/lib/icons";
 import { usePlayer } from "@/lib/usePlayer";
 import { track } from "@vercel/analytics";
 import { useMicVAD, utils } from "@ricky0123/vad-react";
+import Image from 'next/image';
+
 
 type Message = {
 	role: "user" | "assistant";
@@ -134,9 +136,8 @@ export default function Home() {
 	return (
 		<>
 			<div className="pb-4 min-h-28" />
-			
 
-			<img src={companyLogo} alt="image_description" style={{
+			 <Image className="object-cover" src={companyLogo} style={{
 				    width: '500px',
 				    height: '300px',
 				    position: 'absolute',
@@ -145,6 +146,7 @@ export default function Home() {
 				    transform: 'translate(-50%, -50%)'
  				 }} />
 
+			
 			<form
 				className="rounded-full bg-neutral-200/80 dark:bg-neutral-800/80 flex items-center w-full max-w-3xl border border-transparent hover:border-neutral-300 focus-within:border-neutral-400 hover:focus-within:border-neutral-400 dark:hover:border-neutral-700 dark:focus-within:border-neutral-600 dark:hover:focus-within:border-neutral-600"
 				onSubmit={handleFormSubmit}
