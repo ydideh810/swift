@@ -134,6 +134,17 @@ export default function Home() {
 	}
 
 	return (
+
+		
+				 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
+				    width: '180px',
+				    height: '218px',
+				    position: 'absolute',
+				    left: '50%',
+				    top: '50%',
+			            marginBottom: '500px',
+				    transform: 'translate(-50%, -50%)'
+ 				 }} />
 		<>
 			
 			
@@ -145,19 +156,13 @@ export default function Home() {
 
 
 			<form
+
+			
 				className="rounded-full bg-neutral-200/80 dark:bg-neutral-800/80 flex items-center w-full max-w-3xl border border-transparent hover:border-neutral-300 focus-within:border-neutral-400 hover:focus-within:border-neutral-400 dark:hover:border-neutral-700 dark:focus-within:border-neutral-600 dark:hover:focus-within:border-neutral-600"
 				onSubmit={handleFormSubmit}
 			>
 
-					 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
-				    width: '180px',
-				    height: '218px',
-				    position: 'absolute',
-				    left: '50%',
-				    top: '50%',
-			            marginBottom: '500px',
-				    transform: 'translate(-50%, -50%)'
- 				 }} />
+				
 				
 				<input
 					type="text"
