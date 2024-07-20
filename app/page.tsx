@@ -138,12 +138,12 @@ export default function Home() {
 			<div className="pb-4 min-h-28" />
 
 			 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
-				    width: '80px',
-				    height: '50px',
+				    width: '180px',
+				    height: '150px',
 				    position: 'absolute',
 				    left: '50%',
 				    top: '50%',
-			            marginBottom: '100px',
+			            marginBottom: '300px',
 				    transform: 'translate(-50%, -50%)'
  				 }} />
 
