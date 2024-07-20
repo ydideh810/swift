@@ -135,8 +135,21 @@ export default function Home() {
 
 	return (
 		<>
+			
+			
+			
+			
+			<div className="pb-4 min-h-28" />
 
-			 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
+			
+
+
+			<form
+				className="rounded-full bg-neutral-200/80 dark:bg-neutral-800/80 flex items-center w-full max-w-3xl border border-transparent hover:border-neutral-300 focus-within:border-neutral-400 hover:focus-within:border-neutral-400 dark:hover:border-neutral-700 dark:focus-within:border-neutral-600 dark:hover:focus-within:border-neutral-600"
+				onSubmit={handleFormSubmit}
+			>
+
+					 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
 				    width: '180px',
 				    height: '218px',
 				    position: 'absolute',
@@ -145,17 +158,7 @@ export default function Home() {
 			            marginBottom: '500px',
 				    transform: 'translate(-50%, -50%)'
  				 }} />
-			
-			<div className="pb-4 min-h-28" />
-
-			
-
-
-			
-			<form
-				className="rounded-full bg-neutral-200/80 dark:bg-neutral-800/80 flex items-center w-full max-w-3xl border border-transparent hover:border-neutral-300 focus-within:border-neutral-400 hover:focus-within:border-neutral-400 dark:hover:border-neutral-700 dark:focus-within:border-neutral-600 dark:hover:focus-within:border-neutral-600"
-				onSubmit={handleFormSubmit}
-			>
+				
 				<input
 					type="text"
 					className="bg-transparent focus:outline-none p-4 w-full placeholder:text-neutral-600 dark:placeholder:text-neutral-400"
@@ -190,10 +193,7 @@ export default function Home() {
 				{messages.length === 0 && (
 					<>
 						<p>
-							Your private voice assistant. Powered by{" "}
-							<A href="https://groq.com">Groq</A>,{" "}
-							<A href="https://cartesia.ai">Cartesia</A>,{" "}
-							<A href="https://www.vad.ricky0123.com/">VAD</A>,
+						     Private Informed Voice Assistant.
 						</p>
 
 						{vad.loading ? (
