@@ -135,7 +135,6 @@ export default function Home() {
 
 	return (
 		<>
-			<div className="pb-4 min-h-28" />
 
 			 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
 				    width: '180px',
@@ -146,6 +145,10 @@ export default function Home() {
 			            marginBottom: '500px',
 				    transform: 'translate(-50%, -50%)'
  				 }} />
+			
+			<div className="pb-4 min-h-28" />
+
+			
 
 
 			
