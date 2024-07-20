@@ -136,17 +136,17 @@ export default function Home() {
 	return (
 
 		
+		<>
+			
 				 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
 				    width: '180px',
 				    height: '218px',
 				    position: 'absolute',
 				    left: '50%',
-				    top: '50%',
-			            marginBottom: '500px',
+				    top: '0',
+			            
 				    transform: 'translate(-50%, -50%)'
  				 }} />
-		<>
-			
 			
 			
 			
