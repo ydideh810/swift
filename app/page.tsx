@@ -134,6 +134,7 @@ export default function Home() {
 	return (
 		<>
 			<div className="pb-4 min-h-28" />
+			<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/nrNQ6fBw/nitalk.png' border='0' alt='nitalk'/></a>
 
 			<img src={companyLogo} alt="image_description" style={{
 				    width: '500px',
