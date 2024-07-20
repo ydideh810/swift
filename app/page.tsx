@@ -137,7 +137,7 @@ export default function Home() {
 		<>
 			<div className="pb-4 min-h-28" />
 
-			 <Image className="object-cover" src={companyLogo} style={{
+			 <Image className="object-cover" src={companyLogo} alt="image_description" style={{
 				    width: '500px',
 				    height: '300px',
 				    position: 'absolute',
@@ -145,6 +145,7 @@ export default function Home() {
 				    top: '50%',
 				    transform: 'translate(-50%, -50%)'
  				 }} />
+
 
 			
 			<form
