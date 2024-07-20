@@ -172,6 +172,11 @@ export default function Home() {
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
 					ref={inputRef}
+					style={{
+		
+				    top: '50%',
+			   
+ 				 }}
 				/>
 
 				<button
