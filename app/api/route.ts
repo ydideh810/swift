@@ -128,7 +128,7 @@ async function getTranscript(input: string | File) {
 		const response = await fetch(GLADIA_URL, {
 			method: "POST",
 			headers: {
-				x-gladia-key: `Bearer ${process.env.GLADIA_API_KEY}`,
+				"x-gladia-key": `Bearer ${process.env.GLADIA_API_KEY}`,
 			},
 			body: formData,
 		});
