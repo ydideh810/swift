@@ -1,11 +1,13 @@
-import Groq from "groq-sdk";
 import { headers } from "next/headers";
 import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { unstable_after as after } from "next/server";
 
-const groq = new Groq();
+// Gladia API URL and Arli AI Endpoint
+const GLADIA_URL = "https://api.gladia.io/audio/text/transcription";
+const ARLIAI_URL = "https://api.arli.ai/v1/conversation";
 
+// Schema validation
 const schema = zfd.formData({
 	input: z.union([zfd.text(), zfd.file()]),
 	message: zfd.repeatableOfType(
@@ -34,32 +36,31 @@ export async function POST(request: Request) {
 		"text completion " + request.headers.get("x-vercel-id") || "local"
 	);
 
-	const completion = await groq.chat.completions.create({
-		model: "llama3-8b-8192",
-		messages: [
-			{
-				role: "system",
-				content: `- You are Swift, a friendly and helpful voice assistant.
-			- Respond briefly to the user's request, and do not provide unnecessary information.
-			- If you don't understand the user's request, ask for clarification.
-			- You do not have access to up-to-date information, so you should not provide real-time data.
-			- You are not capable of performing actions other than responding to the user.
-			- Do not use markdown, emojis, or other formatting in your responses. Respond in a way easily spoken by text-to-speech software.
-			- User location is ${location()}.
-			- The current time is ${time()}.
-			- Your large language model is Llama 3, created by Meta, the 8 billion parameter version. It is hosted on Groq, an AI infrastructure company that builds fast inference technology.
-			- Your text-to-speech model is Sonic, created and hosted by Cartesia, a company that builds fast and realistic speech synthesis technology.
-			- You are built with Next.js and hosted on Vercel.`,
-			},
-			...data.message,
-			{
-				role: "user",
-				content: transcript,
-			},
-		],
+	// Replace Llama3 with Arli AI for conversation response
+	const completion = await fetch(ARLIAI_URL, {
+		method: "POST",
+		headers: {
+			Authorization: `Bearer ${process.env.ARLI_AI_KEY}`,
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			prompt: transcript,
+			messages: [
+				{
+					role: "system",
+					content: `- You are NIDAAM, an advanced AI assistant. Be helpful and concise.`,
+				},
+				...data.message,
+				{
+					role: "user",
+					content: transcript,
+				},
+			],
+		}),
 	});
+	const result = await completion.json();
+	const response = result.response;
 
-	const response = completion.choices[0].message.content;
 	console.timeEnd(
 		"text completion " + request.headers.get("x-vercel-id") || "local"
 	);
@@ -68,6 +69,7 @@ export async function POST(request: Request) {
 		"cartesia request " + request.headers.get("x-vercel-id") || "local"
 	);
 
+	// Cartesia Sonic TTS remains the same
 	const voice = await fetch("https://api.cartesia.ai/tts/bytes", {
 		method: "POST",
 		headers: {
@@ -114,6 +116,30 @@ export async function POST(request: Request) {
 	});
 }
 
+// Replaced Whisper with Gladia for transcription
+async function getTranscript(input: string | File) {
+	if (typeof input === "string") return input;
+
+	try {
+		const formData = new FormData();
+		formData.append("audio", input);
+
+		const response = await fetch(GLADIA_URL, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${process.env.GLADIA_API_KEY}`,
+			},
+			body: formData,
+		});
+
+		const result = await response.json();
+		return result.text.trim() || null;
+	} catch {
+		return null;
+	}
+}
+
+// Location and time remain unchanged
 function location() {
 	const headersList = headers();
 
@@ -130,19 +156,4 @@ function time() {
 	return new Date().toLocaleString("en-US", {
 		timeZone: headers().get("x-vercel-ip-timezone") || undefined,
 	});
-}
-
-async function getTranscript(input: string | File) {
-	if (typeof input === "string") return input;
-
-	try {
-		const { text } = await groq.audio.transcriptions.create({
-			file: input,
-			model: "whisper-large-v3",
-		});
-
-		return text.trim() || null;
-	} catch {
-		return null; // Empty audio file
-	}
 }
