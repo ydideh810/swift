@@ -4,8 +4,8 @@ import { zfd } from "zod-form-data";
 import { unstable_after as after } from "next/server";
 
 // Gladia API URL and Arli AI Endpoint
-const GLADIA_URL = "https://api.gladia.io/audio/text/transcription";
-const ARLIAI_URL = "https://api.arli.ai/v1/conversation";
+const GLADIA_URL = "https://api.gladia.io/v2/upload";
+const ARLIAI_URL = "https://api.arliai.com/v1/chat/completions";
 
 // Schema validation
 const schema = zfd.formData({
