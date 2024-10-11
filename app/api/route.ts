@@ -44,6 +44,7 @@ export async function POST(request: Request) {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
+			model: "Meta-Llama-3.1-8B-Instruct",
 			prompt: transcript,
 			messages: [
 				{
@@ -127,7 +128,7 @@ async function getTranscript(input: string | File) {
 		const response = await fetch(GLADIA_URL, {
 			method: "POST",
 			headers: {
-				Authorization: `Bearer ${process.env.GLADIA_API_KEY}`,
+				x-gladia-key: `Bearer ${process.env.GLADIA_API_KEY}`,
 			},
 			body: formData,
 		});
